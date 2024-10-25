@@ -1,5 +1,5 @@
 # Author cian Gallagher
-# A python programme that simulates the board game risk and plotting the results.
+# A python programme that simulates dice battles in the board game Risk, then plots the results.
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,15 +12,33 @@ dice = [1, 2, 3, 4, 5, 6]
 seed = 1337
 rng = np.random.default_rng(seed)
 
-attacker_rolls = []
-defender_rolls = []
-
+attacker_turns = []
+defender_turns = []
 
 for battle in range(battles):
-    dice_roll = rng.choice(dice)
-    attacker_rolls.append(dice_roll)
-    dice_roll = rng.choice(dice)
-    defender_rolls.append(dice_roll)
 
-print(attacker_rolls)
-print(defender_rolls)
+    defender_roll = []
+    attacker_roll = []
+
+    dice_roll = rng.choice(dice)
+    attacker_roll.append(dice_roll)
+    dice_roll = rng.choice(dice)
+    attacker_roll.append(dice_roll)
+    dice_roll = rng.choice(dice)
+    attacker_roll.append(dice_roll)
+
+    attacker_turns.append(attacker_roll)
+
+    dice_roll = rng.choice(dice)
+    defender_roll.append(dice_roll)
+    dice_roll = rng.choice(dice)
+    defender_roll.append(dice_roll)
+
+    defender_turns.append(defender_roll)
+
+    defender_roll = []
+    attacker_roll = []   
+
+
+print(attacker_turns)
+print(defender_turns)
