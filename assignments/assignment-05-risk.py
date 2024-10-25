@@ -4,7 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-battles = 1000
+battles = 10
 attackers = 3
 defenders = 2
 dice = [1, 2, 3, 4, 5, 6]
@@ -14,7 +14,13 @@ rng = np.random.default_rng(seed)
 
 dice_roll = rng.choice(dice)
 
-attacker_rolls = ([])
-defender_rolls = ([])
+attacker_rolls = []
+defender_rolls = []
 
-print(dice_roll)
+for battle in range(battles):
+    print(dice_roll)
+    attacker_rolls.append(dice_roll)
+    defender_rolls.append(dice_roll)
+
+print(attacker_rolls)
+print(defender_rolls)
