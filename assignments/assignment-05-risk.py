@@ -4,7 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-battles = 1
+battles = 10
 attackers = 3
 defenders = 2
 dice = [1, 2, 3, 4, 5, 6]
@@ -16,11 +16,14 @@ faceoff = []
 
 for battle in range(battles):
 
-    attacker_roll = rng.choice(dice, size=attackers).tolist()
-    defender_roll = rng.choice(dice, size=defenders).tolist()
+    attacker_roll = sorted(rng.choice(dice, size=attackers), reverse=True)
+    defender_roll = sorted(rng.choice(dice, size=defenders), reverse=True)
 
     faceoff.append((attacker_roll, defender_roll))
 
-print(faceoff)
-# print(attacker_turns)
-# print(defender_turns)
+
+# Probably need another loop - line up the two lists in each index of faceoff and write if statements for Risks' rules of engagement. 
+
+# print(faceoff)
+print(faceoff[0])
+# print(type(faceoff))
