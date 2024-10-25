@@ -16,8 +16,8 @@ faceoff = []
 
 for battle in range(battles):
 
-    attacker_roll = rng.choice(dice, size=attackers)
-    defender_roll = rng.choice(dice, size=defenders)
+    attacker_roll = rng.choice(dice, size=attackers).tolist()
+    defender_roll = rng.choice(dice, size=defenders).tolist()
 
     faceoff.append((attacker_roll, defender_roll))
 
