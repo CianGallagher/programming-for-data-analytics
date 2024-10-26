@@ -4,7 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-battles = 1
+battles = 5
 attackers = 3
 defenders = 2
 dice = [1, 2, 3, 4, 5, 6]
@@ -21,8 +21,8 @@ for battle in range(battles):
 
     testzip = list(zip(attacker_roll, defender_roll))
 
+    print(f"Battle {battle + 1}:")
     for i in testzip:
-        print(i)  # Print each pair of rolls
         if i[0] > i[1]:
             print("Attacker Wins!")
         else:
@@ -30,10 +30,7 @@ for battle in range(battles):
 
 # Probably need another loop - line up the two lists in each index of faceoff and write if statements for Risks' rules of engagement. 
   
-testzip = list(zip(attacker_roll, defender_roll))
-
-
-
+# testzip = list(zip(attacker_roll, defender_roll))
 
 # print(len(testzip))
 # print(attacker_roll)
