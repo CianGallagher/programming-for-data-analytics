@@ -21,13 +21,19 @@ for battle in range(battles):
 
     faceoff.append((attacker_roll, defender_roll))
 
-
 # Probably need another loop - line up the two lists in each index of faceoff and write if statements for Risks' rules of engagement. 
+  
 testzip = zip(attacker_roll, defender_roll)
-print(testzip)
-print(type(testzip))
+
+for i in testzip:
+    if i[0] > i[1]:
+        print("Attacker Wins!")
+    else:
+        print("Defender Wins")
 
 
+# print(attacker_roll)
+# print(defender_roll)
+# print(faceoff)
+# print(type(faceoff))
 
-print(faceoff)
-print(type(faceoff))
