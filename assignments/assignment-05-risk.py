@@ -4,7 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-battles = 10
+battles = 1
 attackers = 3
 defenders = 2
 dice = [1, 2, 3, 4, 5, 6]
@@ -23,7 +23,11 @@ for battle in range(battles):
 
 
 # Probably need another loop - line up the two lists in each index of faceoff and write if statements for Risks' rules of engagement. 
+testzip = zip(attacker_roll, defender_roll)
+print(testzip)
+print(type(testzip))
 
-# print(faceoff)
-print(faceoff[0])
-# print(type(faceoff))
+
+
+print(faceoff)
+print(type(faceoff))
