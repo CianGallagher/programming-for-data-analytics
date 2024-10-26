@@ -4,7 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-battles = 3
+battles = 1000
 attackers = 3
 defenders = 2
 dice = [1, 2, 3, 4, 5, 6]
@@ -29,10 +29,5 @@ for battle in range(battles):
             print("Attacker Wins!")
         else:
             print("Defender Wins")
-
-# Probably need another loop - line up the two lists in each index of faceoff and write if statements for Risks' rules of engagement. 
-  
-# print(attacker_roll)
-# print(defender_roll)
 
 
