@@ -4,42 +4,45 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-battles = 10
+battles = 1000
 attackers = 3
 defenders = 2
-dice = [1, 2, 3, 4, 5, 6]
-
 seed = 1337
 rng = np.random.default_rng(seed)
 
-attacker_losses = []
-defender_losses = []
+total_attacker_losses = 0
+total_defender_losses = 0
 
-for battle in range(battles):
+for _ in range(battles):
+    attacker_rolls = sorted(rng.integers(1, 7, size=attackers), reverse=True)
+    defender_rolls = sorted(rng.integers(1, 7, size=defenders), reverse=True)
 
-    attacker_rolls = sorted(rng.choice(dice, size=attackers), reverse=True)
-    defender_rolls = sorted(rng.choice(dice, size=defenders), reverse=True)
+    attacker_losses = 0
+    defender_losses = 0
 
-    attacker_losses_round = 0
-    defender_losses_round = 0
-
-    faceoff = list(zip(attacker_rolls, defender_rolls))
-
-    # print(f"Battle {battle + 1}:")
-    # print(f"Attacker rolls: {attacker_rolls}")
-    # print(f"Defender rolls: {defender_rolls}")
-    # print("Dice pairs:    ", faceoff)
-
-    for i, (attacker_single_roll, defender_single_roll) in enumerate(faceoff):
-        if attacker_single_roll > defender_single_roll:
-            print("Attacker Wins!")
-            defender_losses_round += 1
-        else:
-            print("Defender Wins")
-            attacker_losses_round += 1
+    faceoff = zip(attacker_rolls, defender_rolls)
     
-    attacker_losses.append(attacker_losses_round)
-    defender_losses.append(defender_losses_round)
+    for attacker_roll, defender_roll in faceoff:
+        if attacker_roll > defender_roll:
+            defender_losses += 1
+        else:
+            attacker_losses += 1
 
-print(attacker_losses)
-print(defender_losses)
+    total_attacker_losses += attacker_losses
+    total_defender_losses += defender_losses
+
+average_attacker_losses = total_attacker_losses / battles
+average_defender_losses = total_defender_losses / battles
+
+plt.figure(figsize=(8, 6))
+
+labels = ['Attacker', 'Defender']
+averages = [average_attacker_losses, average_defender_losses]
+
+plt.bar(labels, averages, color=['#D81B60', '#1E88E5'], edgecolor='black', hatch=['//', '\\'])
+plt.ylabel('Average Troops Lost')
+plt.title('Average Troops Lost per Risk Battle Simulation')
+plt.grid(axis='y', linestyle='--')
+
+plt.show()
+
