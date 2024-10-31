@@ -15,7 +15,7 @@ rng = np.random.default_rng(seed)
 total_attacker_losses = 0
 total_defender_losses = 0
 
-'''initialise a for loop that returns 2 sorted, random, dice roll in reverse (descending) order for each player,
+'''initialise a for loop that returns 2 sorted, random dice rolls in reverse (descending) order for each player,
 pits the rolls against eachother and adds each loss to its appropriate player.'''
 for _ in range(battles):
     attacker_rolls = sorted(rng.integers(1, 7, size=attackers), reverse=True)
