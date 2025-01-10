@@ -72,13 +72,13 @@ Historical stock price data for NVDA, TSLA, and the S&P 500 (benchmark) was fetc
 
 The portfolio consists of equal weights (50% each) of NVDA and TSLA stocks. The following metrics were calculated:
 
-    Daily Returns: Percentage change in daily closing prices.
+- Daily Returns: Percentage change in daily closing prices.
 
-    Excess Returns: Daily returns adjusted for the risk-free rate (derived from the 10-year Treasury bond yield).
+- Excess Returns: Daily returns adjusted for the risk-free rate (derived from the 10-year Treasury bond yield).
 
-    Sharpe Ratio: Risk-adjusted return of the portfolio and individual stocks.
+- Sharpe Ratio: Risk-adjusted return of the portfolio and individual stocks.
 
-    Cumulative Returns: Growth of the portfolio and individual stocks over time.
+- Cumulative Returns: Growth of the portfolio and individual stocks over time.
 
 Benchmark Comparison
 
@@ -88,10 +88,10 @@ The S&P 500 was used as a benchmark to evaluate the portfolio's performance. The
 
 The analysis revealed the following key insights:
 
-    Portfolio Performance: The portfolio delivered strong cumulative returns but had a lower Sharpe ratio compared to the S&P 500.
+- Portfolio Performance: The portfolio delivered strong cumulative returns but had a lower Sharpe ratio compared to the S&P 500.
 
-    Benchmark Comparison: The S&P 500 outperformed the portfolio in terms of risk-adjusted returns.
+- Benchmark Comparison: The S&P 500 outperformed the portfolio in terms of risk-adjusted returns.
 
-    Stock Performance: NVDA showed more consistent growth, while TSLA exhibited higher volatility.
+- Stock Performance: NVDA showed more consistent growth, while TSLA exhibited higher volatility.
 
 For detailed results, refer to the visualizations and summary tables in the Jupyter notebook.
