@@ -31,19 +31,67 @@ This repository is organized into three main directories to reflect the differen
 - **SQL Databases**: Practical knowledge of working with SQLite databases for storing and retrieving structured data.
 - **Algorithmic Problem-Solving**: Developed algorithms to automate tasks, optimize processes, and handle large datasets efficiently.
   
-## Final Project blog initial blog style notes
 
-Working in the financial industry - I have a great interest in the financial markets and it's intersection with technology. Given this, I have decided to endevour to analyse historical financial data in this notebook. The scope is not yet finalised but I'd like to:
-1. Implement some areas of interest I research such a quantative analysis.
-2. Ingest the data after researching APIs and sources of said data.
-3. Organise/clean the data once ingested.
-4. Perform some analysis - Undecided but perhaps risk adjusted returns or a comparison of sharpe ratios etc.
-5. Plot findings
-6. ** Bonus ** Implement machine learning if it makes sense.
+## Project Overview
+This project performs a data analysis on stock price data for NVIDIA (NVDA) and Tesla (TSLA) and compares their performance to the S&P 500 benchmark. The analysis includes:
+- Fetching historical stock price data using the `yfinance` library.
+- Calculating key financial metrics such as daily returns, Sharpe ratios, and cumulative returns.
+- Visualizing the performance of a portfolio consisting of NVDA and TSLA stocks.
+- Comparing the portfolio's performance to the S&P 500 benchmark.
 
-1. Data source priority - low cost(free), data relevance, ease of use for correctors.
-I've used yfinance before but I believe they have recently implemented fees and the basic version is becoming ever more restricted(will have to verify this). There is a lot of chatter online about polygons API which is free, easy to use, and has been used by companies like Google, Revolut, Motley Fool, Kraken, and Stanford. Another source I've been interested in trying is Financial Modelling Prep(FMP) for similar reasons to polygon. I'll look into both and make a determination based on the projects requirements. If appropriate I will implement one of these sources to start the project. If these approaches are deemed too cumbersome for correctors I will opt for simpler sources.
+The goal of this project is to evaluate the risk-adjusted returns of the portfolio and understand how it performs relative to the broader market.
 
-YFinance appears to still be free when requesting the data required for a project like this so we'll be using Yfinance.
+## Installation
+To run this project, you'll need the following Python libraries:
+- `yfinance`
+- `pandas`
+- `matplotlib`
 
+Install these libraries using `pip`:
+`bash pip install yfinance pandas matplotlib`
 
+## Usage
+1. Clone this repository using:
+   `git clone https://github.com/CianGallagher/programming-for-data-analytics.git`
+
+2. Navigate to the project directory:
+   `cd project/`
+
+3. Open the Jupyter notebook:
+    `jupyter notebook portfolio_analysis_tool.ipynb`
+
+4. Run the notebook to perform the analysis and generate the plots.
+
+## Methodology
+
+### Data Fetching
+
+Historical stock price data for NVDA, TSLA, and the S&P 500 (benchmark) was fetched using the yfinance library. The data covers the period from January 1, 2024, to December 31, 2024.
+
+### Portfolio Analysis
+
+The portfolio consists of equal weights (50% each) of NVDA and TSLA stocks. The following metrics were calculated:
+
+    Daily Returns: Percentage change in daily closing prices.
+
+    Excess Returns: Daily returns adjusted for the risk-free rate (derived from the 10-year Treasury bond yield).
+
+    Sharpe Ratio: Risk-adjusted return of the portfolio and individual stocks.
+
+    Cumulative Returns: Growth of the portfolio and individual stocks over time.
+
+Benchmark Comparison
+
+The S&P 500 was used as a benchmark to evaluate the portfolio's performance. The same metrics (daily returns, cumulative returns, and Sharpe ratio) were calculated for the benchmark.
+
+## Results
+
+The analysis revealed the following key insights:
+
+    Portfolio Performance: The portfolio delivered strong cumulative returns but had a lower Sharpe ratio compared to the S&P 500.
+
+    Benchmark Comparison: The S&P 500 outperformed the portfolio in terms of risk-adjusted returns.
+
+    Stock Performance: NVDA showed more consistent growth, while TSLA exhibited higher volatility.
+
+For detailed results, refer to the visualizations and summary tables in the Jupyter notebook.
