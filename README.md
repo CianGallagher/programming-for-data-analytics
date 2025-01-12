@@ -37,18 +37,19 @@ This project performs a data analysis on stock price data for NVIDIA (NVDA) and 
 - Fetching historical stock price data using the `yfinance` library.
 - Calculating key financial metrics such as daily returns, Sharpe ratios, and cumulative returns.
 - Visualizing the performance of a portfolio consisting of NVDA and TSLA stocks.
-- Comparing the portfolio's performance to the S&P 500 benchmark.
+- Detecting anomalies in stock price data using the Isolation Forest algorithm.
 
-The goal of this project is to evaluate the risk-adjusted returns of the portfolio and understand how it performs relative to the broader market.
+The goal of this project is to evaluate the risk-adjusted returns of the portfolio, understand how it performs relative to the broader market, and identify unusual price movements.
 
 ## Installation
 To run this project, you'll need the following Python libraries:
 - `yfinance`
 - `pandas`
 - `matplotlib`
+- `scikit-learn` (for Isolation Forest) 
 
-Install these libraries using `pip`:
-`bash pip install yfinance pandas matplotlib`
+Install these libraries using `pip` in a terminal:
+`pip install yfinance pandas matplotlib scikit-learn`
 
 ## Usage
 1. Clone this repository using:
@@ -67,6 +68,7 @@ Install these libraries using `pip`:
 ### Data Fetching
 
 Historical stock price data for NVDA, TSLA, and the S&P 500 (benchmark) was fetched using the yfinance library. The data covers the period from January 1, 2024, to December 31, 2024.
+The `yfinance` library was chosen for its simplicity and effectiveness in fetching historical stock data. It provides free, easy-to-use access to a wide range of financial instruments (e.g., stocks, indices) and integrates seamlessly with Pandas for data analysis. Its intuitive API and flexibility in specifying time periods make it ideal for projects like this one.
 
 ### Portfolio Analysis
 
@@ -80,18 +82,67 @@ The portfolio consists of equal weights (50% each) of NVDA and TSLA stocks. The 
 
 - Cumulative Returns: Growth of the portfolio and individual stocks over time.
 
-Benchmark Comparison
+### Benchmark Comparison
 
 The S&P 500 was used as a benchmark to evaluate the portfolio's performance. The same metrics (daily returns, cumulative returns, and Sharpe ratio) were calculated for the benchmark.
+
+### Anomaly Detection
+
+The Isolation Forest algorithm was used to detect unusual patterns in the stock price data for NVDA. With a contamination parameter of 0.01 (1% of the data considered outliers), the model identified specific days where the stock prices deviated significantly from normal behavior. These anomalies could indicate significant market events, such as earnings reports, news releases, or external shocks.
 
 ## Results
 
 The analysis revealed the following key insights:
 
-- Portfolio Performance: The portfolio delivered strong cumulative returns but had a lower Sharpe ratio compared to the S&P 500.
+1. Portfolio Performance: The portfolio delivered strong cumulative returns but had a lower Sharpe ratio compared to the S&P 500.
 
-- Benchmark Comparison: The S&P 500 outperformed the portfolio in terms of risk-adjusted returns.
+2. Benchmark Comparison: The S&P 500 outperformed the portfolio in terms of risk-adjusted returns.
 
-- Stock Performance: NVDA showed more consistent growth, while TSLA exhibited higher volatility.
+3. Stock Performance: NVDA showed more consistent growth, while TSLA exhibited higher volatility.
+
+4. Anomaly Detection: The Isolation Forest model successfully identified anomalies in NVDA's stock price data, highlighting days with unusual price movements. These anomalies are visualized in the Jupyter notebook.
 
 For detailed results, refer to the visualizations and summary tables in the Jupyter notebook.
+
+## References
+
+1. **Markdown Guide:**  
+   Used for formatting README and notebook file.  
+   - [Markdown Cheatsheet](https://www.markdownguide.org/cheat-sheet/)  
+   - [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)  
+
+2. **yfinance Documentation:**  
+   Used to fetch historical stock price data for NVDA, TSLA, and the S&P 500 benchmark.  
+   - [yfinance Documentation](https://pypi.org/project/yfinance/)  
+   - [yfinance GitHub Repository](https://github.com/ranaroussi/yfinance)  
+
+3. **Pandas Documentation:**  
+   Used for data manipulation, cleaning, and analysis, including calculating daily returns, cumulative returns, and portfolio metrics.  
+   - [Pandas Documentation](https://pandas.pydata.org/docs/)  
+   - [Pandas User Guide](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)  
+
+4. **Matplotlib Documentation:**  
+   Used for visualizing stock prices, cumulative returns, and anomalies.  
+   - [Matplotlib Documentation](https://matplotlib.org/stable/contents.html)  
+   - [Matplotlib Tutorials](https://matplotlib.org/stable/tutorials/index.html)  
+
+5. **Risk-Free Rate:**  
+   The 10-year Treasury bond yield was used as the risk-free rate in the Sharpe ratio calculation.  
+   - [CNBC: US10Y](https://www.cnbc.com/quotes/US10Y)  
+   - [Treasury Yield Explanation](https://www.investopedia.com/terms/t/treasury-yield.asp)  
+
+6. **Sharpe Ratio Calculation:**  
+   Methodology based on financial theory to evaluate risk-adjusted returns.  
+   - [Investopedia: Sharpe Ratio](https://www.investopedia.com/terms/s/sharperatio.asp)  
+   - [Modern Portfolio Theory (MPT)](https://www.investopedia.com/terms/m/modernportfoliotheory.asp)  
+
+7. **Scikit-learn Documentation:**  
+   Used for anomaly detection with the Isolation Forest algorithm.  
+   - [Scikit-learn Isolation Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html)  
+   - [Scikit-learn User Guide](https://scikit-learn.org/stable/user_guide.html)  
+
+8. **Isolation Forest Algorithm:**  
+   A machine learning algorithm for anomaly detection, based on isolating outliers in the data.  
+   - [Original Isolation Forest Paper](https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf)  
+   - [Isolation Forest Explained](https://towardsdatascience.com/outlier-detection-with-isolation-forest-3d190448d45e)  
+
